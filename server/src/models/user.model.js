@@ -21,8 +21,7 @@ const userSchema = new schema({
     },
 
     password: {
-        type: String,
-        required: 'password is required'
+        type: String
     },
     role: {
         type: String,
@@ -33,11 +32,8 @@ const userSchema = new schema({
         type: String
     },
     process: {
-        type: String
-    },
-    flag: {
-        type: number,
-        required: true
+        type: String,
+        default: 'manual'
     }
 },
     {
@@ -47,7 +43,9 @@ const userSchema = new schema({
     });
 
 userSchema.pre('save', function (next) {
-    this.password = bcrypt.hashSync(this.password, 10);
+    if (this.password != null) {
+        this.password = bcrypt.hashSync(this.password, 10);
+    }
     next();
 });
 
