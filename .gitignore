@@ -3,3 +3,7 @@ server/package-lock.json
 client/node_modules/*
 client/package-lock.json
 server/src/.env
+client/dist/*
+client/.cache/*
+admin/node_modules/*
+.vscode/*
