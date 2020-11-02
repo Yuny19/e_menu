@@ -7,10 +7,31 @@
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="../src/stylesheet/js/index.js"></script>
 </head>
 
 <body>
-    
+    <div class="card">
+        <div class="card-content">
+            <div class="card-title">
+                <h2>LOGIN</h2>
+                <div class="underline-title"></div>
+            </div>
+            <form method="post" class="form">
+                <label for="user-email" style="padding-top:13px">&nbsp;Email</label>
+                <input id="user-email" class="form-content" type="email" name="email" autocomplete="on" required />
+                <div class="form-border"></div>
+                <label for="user-password" style="padding-top:22px">&nbsp;Password</label>
+                <input id="user-password" class="form-content" type="password" name="password" required />
+                <div class="form-border"></div>
+                <a href="#">
+                    <legend class="forgot-pass">Forgot password?</legend>
+                </a>
+                <input class="submit-btn" type="submit" name="submit" value="LOGIN" />
+                <a href="#" class="signup">Don't haveaccount yet?</a>
+            </form>
+        </div>
+    </div>
 </body>
 
 </html>
