@@ -4,7 +4,13 @@ const upload = multer({dest: 'uploads/'})
 
 class MenuController{
     static create(req, res){
-
+        Menu.create(req.body)
+        .then(result=>{
+            res.status(200).json(result);
+        })
+        .catch(err=>{
+            res.status(400).json(err.message)
+        })
     }
 
     static read(req, res){
@@ -29,3 +35,5 @@ class MenuController{
         })
     }
 }
+
+module.exports = MenuController;

@@ -69,31 +69,26 @@ class UserController {
     static loginManual(req, res) {
         User.findOne({ email: req.body.email.toLowerCase() })
             .then((data) => {
-                if (data.role === 'admin') {
-                    res.writeHead(301,
-                        { Location: 'http://localhost:1234' }
-                    );
-                    res.end();
-                } else {
-                    if (data.process === 'manual') {
-                        const pass = bcrypt.compareSync(req.body.password, data.password);
-                        if (pass) {
-                            res.status(200).json({
-                                name: data.name,
-                                token: data.token
-                            });
-                        } else {
-                            res.status(403).json({
-                                message: 'not authorized'
-                            })
-                        }
+
+                if (data.process === 'manual') {
+                    const pass = bcrypt.compareSync(req.body.password, data.password);
+                    if (pass) {
+                        res.status(200).json({
+                            name: data.name,
+                            token: data.token
+                        });
                     } else {
                         res.status(403).json({
-                            message: "you can't login, try another way"
-
+                            message: 'not authorized'
                         })
                     }
+                } else {
+                    res.status(403).json({
+                        message: "you can't login, try another way"
+
+                    })
                 }
+
 
             })
             .catch(err => {
@@ -102,6 +97,82 @@ class UserController {
                 })
             })
     }
+
+    static loginAdmin(req, res) {
+        User.findOne({ email: req.body.email.toLowerCase() })
+            .then((data) => {
+                if (data.role === 'admin') {
+                    const pass = bcrypt.compareSync(req.body.password, data.password);
+                    if (pass) {
+                        res.status(200).json({
+                            name: data.name,
+                            token: data.token
+                        });
+                    } else {
+                        res.status(403).json({
+                            message: 'not authorized'
+                        });
+                    }
+                } else {
+                    res.status(403).json({
+                        message: "not authorized"
+                    });
+                }
+            })
+            .catch(err => {
+                res.status(401).json({
+                    message: 'please register'
+                })
+            })
+    }
+
+    static update(req, res) {
+        Users.findByIdAndUpdate({ _id: req.params.id }, {
+            $set:
+            {
+                name: req.body.name,
+                password: req.body.password,
+                role: req.body.role
+            }
+        })
+            .then(data => {
+                res.status(201).json(data);
+            })
+            .catch((err) => {
+                res.status(400).json({
+                    message: err.message
+                });
+            })
+    }
+
+    static delete(req, res) {
+        Users.findByIdAndRemove({ _id: req.params.id })
+            .then(() => {
+                res.status(200).json({
+                    message: 'delete success'
+                })
+            })
+            .catch((err) => {
+                res.status(400).json({
+                    message: err.message
+                });
+            })
+    }
+
+    static read(req, res) {
+        Users.find({})
+            .then(data => {
+                res.status(200).json({
+                    data: data
+                });
+            })
+            .catch((err) => {
+                res.status(404).json({
+                    message: err.message
+                });
+            })
+    }
+
 }
 
 module.exports = UserController;

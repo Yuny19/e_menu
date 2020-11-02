@@ -7,3 +7,6 @@ client/dist/*
 client/.cache/*
 admin/node_modules/*
 .vscode/*
+admin/.cache/*
+
+admin/dist/*
