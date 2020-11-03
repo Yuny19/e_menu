@@ -142,3 +142,17 @@ hr {
     right: 0;
     transform: translateX(-50%);
 }
+
+.btn-log-out {
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+.btn-log-out:focus {
+    outline: none;
+}
+
+.btn-log-out:hover {
+    color: gray;
+}

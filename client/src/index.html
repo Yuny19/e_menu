@@ -67,7 +67,32 @@
             </div>
         </div>
     </div>
-    <div id="dashboard"></div>
+    <div id="dashboard">
+        <nav class="navbar navbar-expand-md navbar-dark" style="background-color: rgb(97, 8, 70);">
+            <a class="navbar-brand">YunPi Kitchen</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ml-auto">
+                    <div class="nav-item" style="padding-top: 5px;">
+                        <a id="basket" style="cursor: pointer; color: white;"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="nav-item" style="padding-left: 25px;color: white;">|</div>
+                </div>
+                <div class="navbar-nav">
+                    <div class="nav-item" style="padding-left: 25px; padding-right: 20px; color: white;">
+                        <i class="fa fa-user" aria-hidden="true"></i> Hello, <span id="username"></span>
+                    </div>
+                    <div class="nav-item">
+                        <button class="btn-log-out" id="signOut">Log Out</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+        </div>
+    </div>
 </body>
 <script>
     const arr = [];

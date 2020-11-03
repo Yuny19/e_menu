@@ -13,7 +13,7 @@ $(function () {
     const name = localStorage.getItem('name') || null;
 
     if (name) {
-        $("#name-user").append(name);
+        $("#username").append(name);
     }
 
     if (!token) {
