@@ -1,7 +1,7 @@
 import 'bootstrap';
 import '@fortawesome/fontawesome-free/css/all.css';
 import '../css/index.scss';
-import '../js/jquery.toast';
+import '../js/jquery.toast.js';
 import '../css/jquery.toast.css';
 import './login-register';
 
