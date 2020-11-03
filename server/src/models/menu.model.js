@@ -10,7 +10,7 @@ const menuSchema = new schema({
         type: String,
     },
     price: {
-        type: number,
+        type: Number,
         required: 'price is required'
     }
 },
