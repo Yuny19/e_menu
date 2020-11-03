@@ -14,17 +14,23 @@
           <div class="mb-4 flex items-center justify-center">
             <h2 class="text-2xl">Login Admin</h2>
           </div>
-            <div class="mb-4">
-              <input class="appearance-none border shadow w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username">
-            </div>
-            <div class="mb-6">
-              <input class="appearance-none border shadow w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="password">
-            </div>
-            <div class="flex items-center justify-between">
-              <button class="bg-black hover:bg-white border-black border-2 hover:text-black w-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-                Sign In
-              </button>
-            </div>
+          <div class="mb-4">
+            <input
+              class="appearance-none border shadow w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="username" type="text" placeholder="Username">
+          </div>
+          <div class="mb-6">
+            <input
+              class="appearance-none border shadow w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+              id="password" type="password" placeholder="password">
+          </div>
+          <div class="flex items-center justify-between">
+            <button id="btn-login"
+              class="bg-black hover:bg-white border-black border-2 hover:text-black w-full text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="button">
+              Sign In
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -54,6 +60,9 @@
           <div class="px-6 mb-2 mt-4 mb-8">
             <div class="flex w-full flex-wrap">
               <div class="w-1/4" id="avatar">
+                <img class="rounded-full h-12 w-15"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSk6qKlLk50SrpDFulviyCpf0E2AcU9ncWXpA&usqp=CAU"
+                  alt="Logo" />
               </div>
               <div class="w-3/4 ">
                 <div class="font-mono font-semibold text-xs">
@@ -63,116 +72,184 @@
               </div>
             </div>
             <div>
-              <div class="mb-4 mt-8 text-center"><button
-                  class="modal-open bg-green-700 text-white hover:bg-white hover:text-gray-800 font-semibold py-1 px-2 border border-gray-400 rounded shadow focus:outline-none">New
-                  Repository</button></div>
-            </div>
-            <div>
-              <div class=" text-c2 mb-1 mt-4"><b>Repository</b> </div>
+              <div class="pb-20"></div>
               <hr>
-              <div id="listRepo" class="font-mono text-sm"></div>
-            </div>
-            <div id="list-repo">
+              <div>
+                <a id="click-manage-menu"
+                  class="flex items-center mt-4 py-2 px-6 text-black hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100">
+                  <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z">
+                    </path>
+                  </svg>
 
+                  <span class="mx-3">Manage Menu</span>
+                </a>
+              </div>
+              <div>
+                <a id="click-manage-user"
+                  class="flex items-center mt-4 py-2 px-6 text-black hover:bg-gray-700 hover:bg-opacity-25 hover:text-gray-100">
+                  <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
+                    </path>
+                  </svg>
+
+                  <span class="mx-3">Manage User</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="w-3/4 h-full  items-center justify-center py-20" id="content">
+      <div class="w-3/4 h-full  items-center justify-center py-20 mr-0 pl-10 pr-10" id="content">
+        <div id="table-user">
+          <h2 class="text-2xl">Management User</h2>
+          <div class="shadow-2xl max-w-sm w-full lg:max-w-full lg:flex">
+            <div
+              class="border w-full border-gray-400 lg:border-l lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r lg:rounded-l p-4 flex flex-col justify-between leading-normal">
+              <div class="text-right"><button id="btn-add-user"
+                  class="inline-block text-sm px-4 py-2 leading-none border rounded-2xl text-white border-white bg-gray-900 hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
+                  type="submit">add user</button></div>
+              <div class="mt-2 w-full">
+                <div class="w-full">
+                  <div class="shadow overflow-hidden rounded border-b border-gray-200">
+                    <table class="w-full bg-white scrolling-auto">
+                      <thead class="bg-gray-800 text-white">
+                        <tr>
+                          <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Name</th>
+                          <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Email</th>
+                          <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Role</td>
+                          <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Process</td>
+                          <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Action</td>
+                        </tr>
+                      </thead>
+                      <tbody class="text-gray-700" id="content-user">
 
-        <div class="text-center items-center justify-center px-40 py-20">
-          <table class="table-auto">
-            <thead>
-              <tr>
-                <th class="border px-4 py-2">Name</th>
-                <th class="border px-4 py-2">Type</th>
-                <th class="border px-4 py-2">Size</th>
-              </tr>
-            </thead>
-            <tbody id="body-table">
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
 
-            </tbody>
-          </table>
-          <div id="delete-repo" class="mt-20"></div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+        <div id="table-menu">
+          <h2 class="text-2xl">Management Menu</h2>
+          <div class="shadow-2xl max-w-sm w-full lg:max-w-full lg:flex">
+            <div
+              class="border w-full border-gray-400 lg:border-l lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r lg:rounded-l p-4 flex flex-col justify-between leading-normal">
+              <div class="text-right"><button id="btn-add-menu"
+                  class="inline-block text-sm px-4 py-2 leading-none border rounded-2xl text-white border-white bg-gray-900 hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
+                  type="submit">add menu</button></div>
+              <div class="mt-2 w-full">
+                <div class="w-full">
+                  <div class="shadow overflow-hidden rounded border-b border-gray-200">
+                    <table class="w-full bg-white">
+                      <thead class="bg-gray-800 text-white">
+                        <tr>
+                          <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Name</th>
+                          <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Link</th>
+                          <th class="text-left py-3 px-4 uppercase font-semibold text-sm">Price</th>
+                          <th class="text-center py-3 px-4 uppercase font-semibold text-sm">Action</td>
+                        </tr>
+                      </thead>
+                      <tbody class="text-gray-700" id="content-menu">
 
-    <!-- modal -->
-    <div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
-      <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
 
-      <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
-
-        <div
-          class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
-          <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-            viewBox="0 0 18 18">
-            <path
-              d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
-            </path>
-          </svg>
-          <span class="text-sm">(Esc)</span>
+            </div>
+          </div>
         </div>
 
-        <!-- Add margin if you want to see some of the overlay behind the modal-->
-        <div class="modal-content py-4 text-left px-6">
-          <!--Title-->
-          <div class="flex justify-between items-center pb-3">
-            <p class="text-2xl font-bold">Create New Repository</p>
-            <div class="modal-close cursor-pointer z-50">
-              <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
-                viewBox="0 0 18 18">
-                <path
-                  d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z">
-                </path>
-              </svg>
+        <div id="form-add-user">
+          <div class="max-w-lg max-w-xs bg-gray-100 shadow-2xl rounded-lg mx-auto text-center py-12 mt-4 rounded-xl">
+            <h1 class="text-gray-900 text-center font-extrabold -mt-3 text-3xl">Add User</h1>
+            <div class="container py-5 max-w-md mx-auto">
+              <div class="mb-4">
+                <input placeholder="Name"
+                  class="shadow appearance-none  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="name-regis" type="text">
+              </div>
+              <div class="mb-4">
+                <input placeholder="Email"
+                  class="shadow appearance-none  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="email-regis" type="text">
+              </div>
+              <div class="mb-4">
+                <input placeholder="Password"
+                  class="shadow appearance-none  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="password-regis" type="password">
+              </div>
+              <div class="mb-6">
+                <div class="relative">
+                  <select id="role-regis"
+                    class="shadow appearance-none  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <option>--select role--</option>
+                    <option value="admin">admin</option>
+                    <option value="customer">customer</option>
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center justify-end">
+                <button id="cancel-user"
+                  class="bg-gray-500 hover:bg-white hover:text-gray-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  type="button">
+                  Cancel
+                </button>&nbsp;
+                <button id="save-user"
+                  class="bg-green-500 hover:bg-white hover:text-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  type="button">
+                  Save
+                </button>
+              </div>
             </div>
           </div>
-
-          <!--Body-->
-          <div class="md:flex md:items-center mb-6">
-            <div class="md:w-1/3">
-              <label class="block text-black text-sm font-light md:text-right mb-1 md:mb-0 pr-4" for="name-repo">
-                Repository Name :
-              </label>
-            </div>
-            <div class="md:w-2/3">
-              <input
-                class="bg-gray-200 text-sm border-2 border-gray-200 rounded w-full py-2 px-4 text-black leading-3 focus:outline-none focus:bg-white focus:border-blue-500"
-                id="name-repo" type="text">
+        </div>
+        <div id="form-add-menu">
+          <div class="max-w-lg max-w-xs bg-gray-100 shadow-2xl rounded-lg mx-auto text-center py-12 mt-4 rounded-xl">
+            <h1 class="text-gray-900 text-center font-extrabold -mt-3 text-3xl">Add Menu</h1>
+            <div class="container py-5 max-w-md mx-auto">
+              <div class="mb-4">
+                <input placeholder="Name"
+                  class="shadow appearance-none  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="name-menu" type="text">
+              </div>
+              <div class="mb-4">
+                <input
+                  class="shadow appearance-none  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="file-menu" type="file">
+              </div>
+              <div class="mb-6">
+                <input placeholder="Price"
+                  class="shadow appearance-none  rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="price-menu" type="text">
+              </div>
+              <div class="flex items-center justify-end">
+                <button id="cancel-menu"
+                  class="bg-gray-500 hover:bg-white hover:text-gray-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  type="button">
+                  Cancel
+                </button>&nbsp;
+                <button id="save-menu"
+                  class="bg-green-500 hover:bg-white hover:text-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                  type="button">
+                  Save
+                </button>
+              </div>
             </div>
           </div>
-          <div class="md:flex md:items-center mb-6">
-            <div class="md:w-1/3">
-              <label class="block font-light text-sm text-black md:text-right mb-1 md:mb-0 pr-4" for="description-repo">
-                Description :
-              </label>
-            </div>
-            <div class="md:w-2/3">
-              <input
-                class="bg-gray-200 text-sm  border-2 border-gray-200 rounded w-full py-2 px-4 text-black leading-3 focus:outline-none focus:bg-white focus:border-blue-500"
-                id="description-repo" type="text">
-            </div>
-          </div>
-          <div class="md:flex md:items-center mb-6">
-            <div class="md:w-1/3"></div>
-            <label class="md:w-2/3 block text-gray-500 font-bold">
-              <input class="mr-2 leading-tight" type="checkbox" id="check-readme">
-              <span class="text-sm">
-                Readme.md
-              </span>
-            </label>
-          </div>
-
-          <!--Footer-->
-          <div class="flex justify-end pt-2">
-            <button id="save-repo"
-              class="modal-close px-4 bg-teal-500 p-3 rounded-lg text-white hover:bg-gray-100 hover:text-indigo-400 mr-2">Save</button>
-            <button
-              class="modal-close px-4 bg-gray-500 p-3 rounded-lg text-white hover:text-indigo-400 hover:bg-gray-100">Cancel</button>
-          </div>
-
         </div>
       </div>
     </div>

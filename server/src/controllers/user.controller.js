@@ -6,12 +6,13 @@ const bcrypt = require('bcrypt');
 
 class UserController {
     static create(req, res) {
-        let token = jwt(req.body.email.toLowerCase());
+        let role = req.body.role ? req.body.role : 'customer';
+        let token = jwt(req.body.email.toLowerCase(), role);
         User.create({
             name: req.body.name,
             email: req.body.email.toLowerCase(),
             password: req.body.password,
-            role: req.body.role ? req.body.role : 'customer',
+            role: role,
             token: token
         })
             .then((data) => {
@@ -36,7 +37,7 @@ class UserController {
             })
             .then((user) => {
                 if (user == null) {
-                    let token = jwt(logged.email.toLowerCase());
+                    let token = jwt(logged.email.toLowerCase(), 'customer');
                     return User.create({
                         name: logged.name,
                         email: logged.email.toLowerCase(),
@@ -127,7 +128,7 @@ class UserController {
     }
 
     static update(req, res) {
-        Users.findByIdAndUpdate({ _id: req.params.id }, {
+        User.findByIdAndUpdate({ _id: req.params.id }, {
             $set:
             {
                 name: req.body.name,
@@ -146,7 +147,7 @@ class UserController {
     }
 
     static delete(req, res) {
-        Users.findByIdAndRemove({ _id: req.params.id })
+        User.findByIdAndRemove({ _id: req.params.id })
             .then(() => {
                 res.status(200).json({
                     message: 'delete success'
@@ -160,7 +161,7 @@ class UserController {
     }
 
     static read(req, res) {
-        Users.find({})
+        User.find({})
             .then(data => {
                 res.status(200).json({
                     data: data
