@@ -11,6 +11,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import '../css/index.scss';
 import '../css/wizard.scss';
 import '../css/jquery.toast.css';
+import './login-register';
 
 //import function js
 import './login-register';

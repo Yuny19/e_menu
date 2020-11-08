@@ -68,3 +68,22 @@ $("#save-user").click(function () {
             alert('cant create user')
         })
 });
+
+// $("#btn-delete-user").on("click", function (event) {
+$(document).on("click", "#btn-delete-user", function (event) {
+    var id = $(this).val();
+    $.ajax({
+        url: `http://localhost:3000/user/${id}`,
+        headers: {
+            token: localStorage.getItem('token')
+        },
+        type: 'DELETE'
+    })
+        .done(function (data) {
+            location.reload();
+            alert('delete success');
+        })
+        .catch(function (error) {
+            alert(error.message);
+        })
+});

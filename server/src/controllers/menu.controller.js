@@ -13,16 +13,6 @@ class MenuController{
         })
     }
 
-    static findId(req, res){
-        Menu.findById(req.params.id)
-        .then(data=>{
-            res.status(200).json(data);
-        })
-        .catch(err=>{
-            res.status(404).json(err.message);
-        })
-    }
-
     static read(req, res){
         Menu.find()
         .then(result=>{
@@ -33,7 +23,20 @@ class MenuController{
         })
     }
 
+    static findId(req, res){
+        Menu.findById(req.params.id)
+        .then((data) => {
+            res.status(200).json({
+                message: 'user found'
+            })
+        })
+        .catch((err)=>{
+            res.status(404).json(err.message);
+        })
+    }
+
     static delete(req, res){
+        console.log('masuk delete')
         Menu.findByIdAndRemove(req.params.id)
         .then(()=>{
             res.status(200).json({
