@@ -2,20 +2,27 @@ const mongoose = require('mongoose');
 const schema = mongoose.Schema;
 
 const orderSchema = new schema({
-    user: [{
+    user: {
         type: schema.Types.ObjectId,
-        required: 'name is required'
+        ref: 'Users'
+    },
+    menus: [{
+        type: schema.Types.ObjectId,
+        ref: 'Menus'
     }],
-    menu: [{
-        type: schema.Types.ObjectId
-    }],
-
-    amount: {
-        type: Number,
-        required: 'amount is required'
+    address: {
+        type: String,
+        required: 'address is required'
+    },
+    method_pay: {
+        type: String
     },
     total_pay: {
         type: Number
+    },
+    status: {
+        type: String,
+        default: 'on process'
     }
 },
     {

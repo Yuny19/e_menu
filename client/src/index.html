@@ -1,16 +1,235 @@
 <html>
 
 <head>
+    <title>E_Menu</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
-        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id"
+        content="804494955585-ko1781e61ihdb301h5di87r3670ir61p.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 
 <body>
-    
+    <div id="login-regis" class="page-wrapper">
+        <div class="card card-2">
+            <div class="card-heading"></div>
+            <div class="card-body">
+                <div id="regis">
+                    <h2 class="title">Registration</h2>
+                    <form id="form-regis" name="form-regis">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" placeholder="Name" id="name-regis"
+                                        name="name">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" placeholder="Email" id="email-regis"
+                                        name="email">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="password" placeholder="Password"
+                                        id="password-regis" name="password">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="password" placeholder="Confirm Password"
+                                        name="confirmPassword">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="padding-top: 30px;">
+                            <button class="btn btn-register" type="submit" id="btn-regis">Register</button>&nbsp;
+                            <span><a class="text-primary" id="click-login">back to login</a></span>
+                        </div>
+                    </form>
+                </div>
+                <div id="login">
+                    <h2 class="title">Login</h2>
+                    <form id="form-login">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" placeholder="Email" id="email-login"
+                                        name="email">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="password" placeholder="Password"
+                                        id="password-login" name="password">
+                                </div>
+                                <hr>
+                            </div>
+                            <div class="col-md-6" style="padding-left: 20px;">
+                                or login with : <br><br>
+
+                                <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-error" id="error-login"></p>
+                        </div>
+
+                        <div style="padding-top: 30px;">
+                            <button class="btn btn-register" type="submit" id="btn-login">Login</button> &nbsp;
+                            <span><a class="text-primary" id="click-regis">dont you have account? Register</a></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="dashboard">
+        <nav class="navbar navbar-expand-md navbar-dark">
+            <a class="navbar-brand">YunPi Kitchen</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ml-auto">
+                    <div class="nav-item" style="margin-right: 15px;">
+                        <a id="menus" class="navbar-link">Menu</a>
+                    </div>
+                    <div class="nav-item" style="padding-top: 5px;">
+                        <a id="basket" class="navbar-link"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="nav-item" style="padding-left: 25px;color: white;">|</div>
+                </div>
+                <div class="navbar-nav">
+                    <div class="nav-item" style="padding-left: 25px; padding-right: 20px; color: white;">
+                        <i class="fa fa-user" aria-hidden="true"></i> Hello, <span id="username"></span>
+                    </div>
+                    <div class="nav-item">
+                        <button class="btn-log-out" id="signOut">Log Out</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="container d-flex justify-content-center">
+            <div class="row" id="menu">
+
+            </div>
+            <div id="keranjang">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12 mx-0">
+                            <div class="offset-1">
+                                <!-- progressbar -->
+                                <ul id="progressbar">
+                                    <li class="active" id="order"><strong>Order</strong></li>
+                                    <li id="personal"><strong>Personal</strong></li>
+                                    <li id="payment"><strong>Payment</strong></li>
+                                </ul> <!-- fieldsets -->
+                            </div>
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title">Your Order</h2>
+                                    <div class="row">
+                                        <table class="table" style="width: 700px;">
+                                            <thead>
+                                                <th style="width: 70%;">MENU ITEM</th>
+                                                <th style="width: 15%;">QUANTITY</th>
+                                                <th style="width: 15%;">SUBTOTAL</th>
+                                            </thead>
+                                            <tbody id="body-basket">
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="row">
+                                        add memo:
+                                    </div>
+                                    <div class="row">
+                                        <textarea class="form-control memo" placeholder="add memo here..."></textarea>
+                                    </div>
+                                    <div class="row sub-total">
+                                        <div class="col-md-10">
+                                            ORDER SUB TOTAL:
+                                        </div>
+                                        <div class="col-md-2" id="sub-total">
+
+                                        </div>
+                                    </div>
+                                </div> <input type="button" name="next" class="next action-button" value="Next Step" />
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title">Personal Information</h2>
+                                    <div class="row">
+                                        add addrress:
+                                    </div>
+                                    <div class="row">
+                                        <textarea rows="3" class="form-control memo"
+                                            placeholder="add your address..."></textarea>
+                                    </div>
+                                </div>
+                                <input type="button" name="previous" class="previous action-button-previous"
+                                    value="Previous" />
+                                <input type="button" name="next" class="next action-button" value="Next Step" />
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-card">
+                                    <h2 class="fs-title">Choose Payment Method</h2>
+
+                                    <div class="row">
+                                        <div class="col-sm-10">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="payment" id="pay1"
+                                                    value="cash" checked>
+                                                <label class="form-check-label" for="pay1">
+                                                    Cash On Delivery
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="payment" id="pay2"
+                                                    value="transfer">
+                                                <label class="form-check-label" for="pay2">
+                                                    Transfer Virtual Account
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <input type="button" name="previous" class="previous action-button-previous"
+                                    value="Previous" />
+                                <input type="button" name="checkout" class="next action-button" value="Checkout" />
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
+<script>
+    const arr = [];
+
+    function onSignIn(googleUser) {
+        var id_token = googleUser.getAuthResponse().id_token;
+
+        arr.push(id_token);
+        const token = localStorage.getItem('token') || null;
+        if (arr.length == 2) {
+            signGoogle(id_token);
+        }
+    }
+
+    function signGoogle(token) {
+        $.ajax({
+            url: `http://localhost:3000/user/login/google`,
+            type: 'POST',
+            data: { idToken: token }
+        })
+            .done(function (data) {
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('name', data.name);
+                location.reload();
+            })
+            .catch(function (error) {
+                $("#error-login").append(error.responseJSON.message);
+            })
+    }
+</script>
+<script src="../src/stylesheet/js/index.js"></script>
 
 </html>
