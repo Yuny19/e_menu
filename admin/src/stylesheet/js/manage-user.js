@@ -23,7 +23,7 @@ $("#click-manage-user").click(function () {
                     '<td class="text-center py-3 px-4"><button id="btn-update" value="' + dt._id + '"' +
                     '   class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white bg-green-500 hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"' +
                     '  type="submit">update</button>&nbsp;' +
-                    '<button id="btn-delete" value="' + dt._id + '"' +
+                    '<button id="btn-delete-user" value="' + dt._id + '"' +
                     ' class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white bg-red-500 hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"' +
                     'type="submit">delete</button>' +
                     '</td>' +
@@ -66,5 +66,24 @@ $("#save-user").click(function () {
         })
         .catch(function (error) {
             alert('cant create user')
+        })
+});
+
+// $("#btn-delete-user").on("click", function (event) {
+$(document).on("click", "#btn-delete-user", function (event) {
+    var id = $(this).val();
+    $.ajax({
+        url: `http://localhost:3000/user/${id}`,
+        headers: {
+            token: localStorage.getItem('token')
+        },
+        type: 'DELETE'
+    })
+        .done(function (data) {
+            location.reload();
+            alert('delete success');
+        })
+        .catch(function (error) {
+            alert(error.message);
         })
 });
