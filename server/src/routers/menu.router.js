@@ -10,6 +10,8 @@ router.get('/', Menu.read);
 
 router.get('/:id', Menu.findId);
 
+router.put('/:id', authent, authori,upload, Menu.update);
+
 router.delete('/:id', authent, authori, Menu.delete);
 
 module.exports = router;
