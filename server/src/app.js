@@ -12,6 +12,7 @@ mongoose.connect(`mongodb://localhost:27017/${process.env.DB_NAME}`, {useNewUrlP
 
 const userRouter = require('./routers/user.router');
 const menuRouter = require('./routers/menu.router');
+const orderRouter = require('./routers/order.router');
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -19,6 +20,7 @@ app.use(cors());
 
 app.use('/user', userRouter);
 app.use('/menu', menuRouter);
+app.use('/order', orderRouter);
 
 
 app.get('*', (req, res) => {
