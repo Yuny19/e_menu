@@ -1,6 +1,7 @@
 import '../js/login';
 import '../js/manage-menu';
 import '../js/manage-user';
+import '../js/manage-order';
 
 const baseUrl = 'http://localhost:3000';
 
@@ -23,6 +24,7 @@ $(function () {
         $("#dashboard").show();
         $("#table-menu").hide();
         $("#table-user").hide();
+        $("#table-order").hide();
         $("#form-add-user").hide();
         $("#form-add-menu").hide();
     }
