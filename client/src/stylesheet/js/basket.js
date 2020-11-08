@@ -6,7 +6,6 @@ $("#basket").click(function () {
     let html = '';
     let total = 0;
     $("#body-basket").html(html);
-    $("#sub-total").html(html);
     basket.forEach((dt, i) => {
       let idTotal = dt.name.replace(' ', '-');
       html = html + '<tr>' +
@@ -23,7 +22,7 @@ $("#basket").click(function () {
     });
   
     $("#body-basket").append(html);
-    $("#sub-total").append(total);
+    $("#sub-total").val(total);
   });
   
   
@@ -68,6 +67,5 @@ $("#basket").click(function () {
     let idTotal = paket.replace(' ', '-');
   
     $("#" + idTotal).val(total);
-    $("#sub-total").html('');
-    $("#sub-total").append(subTotal);
+    $("#sub-total").val(subTotal);
   });
