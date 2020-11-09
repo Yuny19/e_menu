@@ -4,16 +4,7 @@ const imgur = require('imgur');
 
 // // Setting
 imgur.setClientId(process.env.CLIENTID_IMGUR);
-// imgur.setAPIUrl(process.env.ENDPOINT_IMGUR);
-// // Getting
-// imgur.getClientId();
-// imgur.getAPIUrl();
 
-// const instance = axios.create({
-//   baseURL: process.env.ENDPOINT_IMGUR,
-//   // timeout: 1000,
-//   headers: { Authorization: `Client-ID ${process.env.CLIENTID_IMGUR}`}
-// });
 
 function uploaded(req, res, next) {
   var storage = multer.memoryStorage()

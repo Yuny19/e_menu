@@ -1,12 +1,26 @@
 @import "~bootstrap/scss/bootstrap";
 
+body {
+    background-image: url(../image/background.jpg);
+    background-repeat: no-repeat;
+}
+
+nav{
+    background-color: rgb(133, 34, 4);
+}
+.error {
+    color: red;
+    font-size: 10px;
+    font-style: italic;
+}
+
 .page-wrapper {
     min-height: 100vh;
     background: rgb(245, 232, 232);
     padding-top: 90px;
     padding-bottom: 90px;
     padding-left: 180px;
-    padding-right: 180px; 
+    padding-right: 180px;
 }
 
 .card {
@@ -28,7 +42,8 @@
 }
 
 .card-2 .card-heading {
-    background: url("https://i.pinimg.com/originals/bc/4c/25/bc4c250bd2f96ba5973e0f6796473ca1.png") top left/cover no-repeat;
+    background: url("https://i.pinimg.com/originals/bc/4c/25/bc4c250bd2f96ba5973e0f6796473ca1.png") top left/cover
+        no-repeat;
     width: 30%;
     display: table-cell;
 }
@@ -40,7 +55,7 @@
 }
 
 @media (max-width: 727px) {
-    .page-wrapper{
+    .page-wrapper {
         padding: 0;
     }
     .card-2 {
@@ -55,6 +70,9 @@
     .card-2 .card-body {
         display: block;
         padding: 60px 50px;
+    }
+    #keranjang{
+        width: 70%;
     }
 }
 
@@ -102,11 +120,6 @@ input {
 
 /* input group 1 */
 /* end input group 1 */
-.input-group {
-    position: relative;
-    margin-bottom: 32px;
-    border-bottom: 1px solid #e5e5e5;
-}
 
 .input-icon {
     position: absolute;
@@ -120,13 +133,6 @@ input {
     -o-transform: translateY(-50%);
     transform: translateY(-50%);
     cursor: pointer;
-}
-
-.input--style-2 {
-    padding: 9px 0;
-    color: #666;
-    font-size: 16px;
-    font-weight: 500;
 }
 
 a {
@@ -154,5 +160,102 @@ hr {
 }
 
 .btn-log-out:hover {
-    color: gray;
+    color: orangered;
 }
+
+.card-text {
+    font-size: 12px;
+}
+
+.text-error {
+    color: red;
+}
+
+.menu {
+    box-shadow: 0 20px 40px 0 rgba(133, 3, 3, 0.2), 0 10px 20px 0 rgba(109, 4, 4, 0.19);
+    border-radius: 8px;
+    background-color: rgb(245, 241, 241);
+}
+
+.card-img-top {
+    height: 11rem;
+}
+
+.form-control {
+    border: none;
+    border-bottom: 2px solid rgb(201, 173, 182);
+    border-radius: 0;
+}
+
+.memo {
+    box-shadow: 0 10px 20px 0 rgba(133, 3, 3, 0.2), 0 6px 8px 0 rgba(109, 4, 4, 0.19);
+    border-radius: 4px;
+}
+
+.navbar-link {
+    cursor: pointer;
+    color: white;
+}
+
+.navbar-link:hover {
+    text-decoration: none;
+    color: orangered;
+}
+
+.sub-total {
+    color: rgb(97, 20, 7);
+    font-weight: bold;
+    padding-top: 1rem;
+}
+
+.quantity {
+    display: inline-block;
+    width: 105px;
+    height: 36px;
+    background: #f2f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantity span {
+    cursor: pointer;
+    display: inline-block;
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.quantity input {
+    border: none;
+    padding: 0;
+    width: 17px;
+    font-size: 15px;
+    color: #666;
+    background: none;
+    text-align: center;
+}
+.quantity input::-webkit-outer-spin-button,
+.quantity input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+#keranjang{
+    background-color: white;
+    width: 900px;
+}
+
+.form-check-label{
+    color: black;
+    font-weight: bold;
+}
+
+#sub-total{
+    text-decoration: none;
+    background: transparent;
+    color: rgb(97, 20, 7);
+    font-weight: bold;
+    font-size: 20px;
+}
+

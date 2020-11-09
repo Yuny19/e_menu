@@ -13,6 +13,6 @@ $("#btn-login").click(function () {
             location.reload();
         })
         .catch(function (error) {
-            alert(error.responseJSON.message);
+            $("#error-login").append(error.responseJSON.message);
         })
 });

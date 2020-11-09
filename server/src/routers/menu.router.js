@@ -7,6 +7,7 @@ const upload = require('../middleware/upload-imgur');
 router.post('/', authent, authori, upload, Menu.create);
 
 router.get('/', Menu.read);
+
 router.get('/:id', Menu.findId);
 
 router.put('/:id', authent, authori,upload, Menu.update);
