@@ -105,8 +105,9 @@
                 </div>
             </div>
         </nav>
-        <div class="container d-flex justify-content-center">
-            <div class="row" id="menu">
+        <div class="container  d-flex justify-content-center">
+
+            <div class="row" id="menu" style="margin-left: 7rem;">
 
             </div>
             <div id="keranjang">
@@ -146,8 +147,8 @@
                                         <div class="col-md-10">
                                             ORDER SUB TOTAL:
                                         </div>
-                                        <div class="col-md-2" id="sub-total">
-
+                                        <div class="col-md-2">
+                                            <input type="text" value="0" id="sub-total">
                                         </div>
                                     </div>
                                 </div> <input type="button" name="next" class="next action-button" value="Next Step" />
@@ -159,7 +160,7 @@
                                         add addrress:
                                     </div>
                                     <div class="row">
-                                        <textarea rows="3" class="form-control memo"
+                                        <textarea id="address" rows="3" class="form-control memo"
                                             placeholder="add your address..."></textarea>
                                     </div>
                                 </div>
@@ -182,16 +183,24 @@
                                             </div>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="payment" id="pay2"
-                                                    value="transfer">
+                                                    value="transfer" data-toggle="collapse"
+                                                    data-target="#transfer-info">
                                                 <label class="form-check-label" for="pay2">
                                                     Transfer Virtual Account
                                                 </label>
+                                            </div>
+                                            <div id="transfer-info" class="collapse">
+                                                <div class="body-info">
+                                                    <p>No. Virtual Account</p>
+                                                    <p>03787948959457</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div> <input type="button" name="previous" class="previous action-button-previous"
                                     value="Previous" />
-                                <input type="button" name="checkout" class="next action-button" value="Checkout" />
+                                <input type="button" id="checkout" name="checkout" class="next action-button"
+                                    value="Checkout" />
                             </fieldset>
                         </div>
                     </div>

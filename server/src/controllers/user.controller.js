@@ -174,6 +174,18 @@ class UserController {
             })
     }
 
+    static findId(req, res){
+        User
+        .findById(req.params.id)
+        .then((data) => {
+            res.status(200).json({
+                message: data
+            })
+        })
+        .catch((err)=>{
+            res.status(404).json(err.message);
+        })
+    }
 }
 
 module.exports = UserController;

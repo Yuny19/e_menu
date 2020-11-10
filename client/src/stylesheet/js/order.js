@@ -1,3 +1,7 @@
+//import sweet alert
+const Swal = require('sweetalert2');
+
+
 $(document).on("click", "#beli", function (event) {
     let id = $(this).val();
 
@@ -35,6 +39,45 @@ $(document).on("click", "#beli", function (event) {
 
 
             localStorage.setItem('basket', JSON.stringify(basket));
+        })
+        .catch(function (err) {
+            alert(err.responseJSON.message);
+        })
+});
+
+$("#checkout").click(function () {
+
+    const basket = localStorage.getItem('basket');
+    let menus = [];
+    let total = 0;
+
+    basket.forEach((data) => {
+        menus.push(data.id);
+        total = total + data.total;
+    });
+
+    let method = $('input[name="payment"]:checked').val();
+    $.ajax({
+        url: `http://localhost:3000/order/`,
+        headers: {
+            token: localStorage.getItem('token')
+        },
+        data: {
+            menus: menus,
+            address: $("#address").val(),
+            method_pay: method,
+            total_pay: total
+        },
+        type: 'POST'
+    })
+        .done(function (data) {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Your order will be processed and sent immediately ^-^',
+                showConfirmButton: false,
+                timer: 1500
+            });
         })
         .catch(function (err) {
             alert(err.responseJSON.message);

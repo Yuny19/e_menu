@@ -12,6 +12,7 @@ router.post('/login/manual', User.loginManual);
 router.post('/login/admin', User.loginAdmin);
 
 router.get('/', authent, User.read);
+router.get('/:id', authent, authori, User.findId)
 
 router.delete('/:id', authent, authori, User.delete);
 
