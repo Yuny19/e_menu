@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "jquery-validation": "^1.19.2",
-    "parcel-bundler": "^1.12.4",
+    "parcel-bundler": "^1.12.5",
     "tailwindcss": "^1.9.6"
   },
   "devDependencies": {
